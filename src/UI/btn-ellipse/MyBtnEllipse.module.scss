@@ -1,0 +1,18 @@
+.btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s linear, box-shadow 0.2s linear,
+    box-shadow 0.2s linear;
+
+  @media (any-hover: hover) {
+    &:hover {
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+      transform: scale(1.15);
+    }
+  }
+}

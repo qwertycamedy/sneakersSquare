@@ -1,0 +1,21 @@
+.logo {
+    gap: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    img {
+        width: 76px;
+        max-width: unset;
+    }
+    > span {
+        > span {
+            &:first-child {
+                color: var(--accent);
+            }
+
+            &:last-child {
+                color: var(--grey);
+            }
+        }
+    }
+}

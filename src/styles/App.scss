@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(./reset.scss);
+
+:root {
+    //colors
+    --light: #fff;
+    --dark: #333333;
+    --accent: #6468DA;
+    --grey: #4F4F4F;
+    --light-grey: #E0E0E0;
+}
+
+@font-face {
+	font-family: 'Inter';
+    font-display: swap;
+    font-weight: 400;
+	src: url(../assets/fonts/Inter-Regular.woff2);
+}
+@font-face {
+	font-family: 'Inter';
+    font-display: swap;
+    font-weight: 500;
+	src: url(../assets/fonts/Inter-Medium.woff2);
+}
+@font-face {
+	font-family: 'Inter';
+    font-display: swap;
+    font-weight: 600;
+	src: url(../assets/fonts/Inter-SemiBold.woff2);
+}
+@font-face {
+	font-family: 'Inter';
+    font-display: swap;
+    font-weight: 700;
+	src: url(../assets/fonts/Inter-Bold.woff2);
+}
+
+html {
+    background: #E7F6FF;
+    min-height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
+    min-height: 100%;
+	overflow-x: hidden;
+}
+
+#root {
+    min-height: 100%;
+}
+
+.App {
+    margin-top: 40px;
+    min-height: 100%;
+    background: var(--light);
+    border-radius: 20px;
+}
+
+.container {
+    margin: 0 auto;
+    &__inner {
+        margin: 0 auto;
+        padding: 0 4vw;
+    }
+}
+
+.title {
+    &-main {
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 46px;
+        color: var(--accent);
+    }
+
+    &-section {
+
+    }
+}
+
+@import url(./Header.scss);
+@import url(./Hero.scss);

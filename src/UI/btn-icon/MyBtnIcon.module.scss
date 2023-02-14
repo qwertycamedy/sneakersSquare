@@ -1,0 +1,16 @@
+.btn {
+    color: val(--grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color .2s linear;
+    svg, img {
+        min-width: 24px;
+        width: 24px;
+        height: 24px;
+    }
+
+    &:hover {
+        color: var(--accent);
+    }
+}
