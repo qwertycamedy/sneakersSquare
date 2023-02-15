@@ -1,7 +1,7 @@
 import React from 'react'
-import cl from './MyBtnEllipse.module.scss'
+import cl from './MyBtnSquare.module.scss'
 
-const MyBtnEllipse = ({classNames, children, ...props}) => {
+const MyBtnSquare = ({classNames, children, ...props}) => {
   return (
     <button className={cl.btn + ' ' + classNames} {...props}>
         {children}
@@ -9,4 +9,4 @@ const MyBtnEllipse = ({classNames, children, ...props}) => {
   )
 }
 
-export default MyBtnEllipse
+export default MyBtnSquare

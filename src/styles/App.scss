@@ -60,13 +60,16 @@ body {
 
 #root {
     min-height: 100%;
+    padding-bottom: 50px;
 }
 
 .App {
     margin-top: 40px;
     min-height: 100%;
     background: var(--light);
+    color: var(--dark);
     border-radius: 20px;
+    padding-bottom: 50px;
 }
 
 .container {
@@ -86,9 +89,13 @@ body {
     }
 
     &-section {
-
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        color: var(--dark);
     }
 }
 
 @import url(./Header.scss);
 @import url(./Hero.scss);
+@import url(./All.scss);

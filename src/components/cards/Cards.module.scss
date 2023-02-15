@@ -1,0 +1,13 @@
+.cards {
+    --elems: 4;
+    --gap: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    gap: var(--gap);
+
+    > div {
+        width: calc((100% - (var(--elems) - 1) * var(--gap)) / (var(--elems)));
+    }
+}

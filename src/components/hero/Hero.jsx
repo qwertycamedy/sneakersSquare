@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Navigation } from "swiper";
+import { EffectFade, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import 'swiper/css/effect-fade';
 import "swiper/css/navigation";
 import MyBtn from "../../UI/btn/MyBtn";
 import heroImg1 from "../../assets/img/hero-1.png";
@@ -51,7 +52,7 @@ const Hero = () => {
         <div className="hero__inner">
           <div className="hero__slide-outer">
             <Swiper
-              modules={[Navigation]}
+              modules={[Navigation, EffectFade]}
               spaceBetween={10}
               slidesPerView={1}
               grabCursor

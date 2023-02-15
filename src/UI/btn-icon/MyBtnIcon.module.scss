@@ -3,14 +3,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color .2s linear;
+    transition: color .2s linear, transform .2s linear;
     svg, img {
         min-width: 24px;
         width: 24px;
         height: 24px;
     }
 
-    &:hover {
-        color: var(--accent);
+    @media(any-hover: hover) {
+        &:hover {
+            color: var(--accent);
+            transform: scale(1.15);
+        }
     }
 }

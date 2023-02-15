@@ -50,3 +50,7 @@ table {
 button {
 	border: unset;
 }
+
+input, button, link, textarea {
+	outline: none;
+}

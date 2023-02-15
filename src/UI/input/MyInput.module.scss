@@ -1,0 +1,14 @@
+.input {
+    border: 1px solid var(--light-grey);
+    border-radius: 10px;
+    padding: 15px;
+    transition: border .2s linear, color .2s linear;
+    min-width: 250px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+    &::placeholder {
+        font-weight: 400;
+        color: var(--light-grey);
+    }
+}

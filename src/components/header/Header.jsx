@@ -12,7 +12,7 @@ const Header = () => {
             <div className="actions flex items-center gap-7">
               <MyBtnIcon classNames='gap-2.5'>
                 <AiOutlineShoppingCart />
-                1205 руб.
+                205 $
               </MyBtnIcon>
               <MyBtnIcon>
                 <AiOutlineHeart />

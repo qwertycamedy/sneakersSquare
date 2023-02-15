@@ -1,0 +1,38 @@
+.search {
+    position: relative;
+    &__btn {
+        color: var(--light-grey);
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%) scale(1) !important;
+
+        @media(any-hover: hover) {
+            &:hover {
+                transform: translateY(-50%) scale(1.15) !important;
+            }
+        }
+    }
+
+    &__input {
+        padding-left: 45px;
+
+        @media(any-hover: hover) {
+            &:hover {
+                border-color: var(--accent);
+                color: var(--accent);
+                & + .search__btn {
+                    color: var(--accent);
+                }
+            }
+        }
+
+        &:focus {
+            border-color: var(--accent);
+            color: var(--accent);
+            & + .search__btn {
+                color: var(--accent);
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+.card {
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 40px;
+    padding: 34px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    transition: transform .2s linear, box-shadow .2s linear;
+
+    @media(any-hover: hover) {
+        &:hover {
+            transform: translate(0, -14px) scale(1.1);
+            box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+        }
+    }
+}
+
+.img {
+    width: 133px;
+    height: 122px;
+    object-fit: contain;
+}
+
+.title {
+    width: 100%;
+    font-size: 16px;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    > span {
+        &:first-child {
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 13px;
+            color: var(--light-grey);
+            margin-bottom: 2px;
+        }
+
+        &:last-child {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+}
+
+.like {
+    transition: fill .2s linear, color .2s linear, background .2s linear, border .2s linear, transform .2s linear ;
+    position: absolute;
+    left: 34px;
+    top: 30px;
+    &d {
+        color: var(--light);
+        background: var(--accent);
+        border: var(--accent);
+
+        &:hover {
+            color: var(--light);
+        }
+    }
+}
+
+.add {
+    &ed {
+        color: var(--light);
+        background: var(--accent);
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+}
