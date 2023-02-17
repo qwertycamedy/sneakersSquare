@@ -5,97 +5,103 @@
 @import url(./reset.scss);
 
 :root {
-    //colors
-    --light: #fff;
-    --dark: #333333;
-    --accent: #6468DA;
-    --grey: #4F4F4F;
-    --light-grey: #E0E0E0;
+  //colors
+  --light: #fff;
+  --dark: #333333;
+  --accent: #6468da;
+  --grey: #4f4f4f;
+  --light-grey: #e0e0e0;
 }
 
 @font-face {
-	font-family: 'Inter';
-    font-display: swap;
-    font-weight: 400;
-	src: url(../assets/fonts/Inter-Regular.woff2);
+  font-family: "Inter";
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/Inter-Regular.woff2);
 }
 @font-face {
-	font-family: 'Inter';
-    font-display: swap;
-    font-weight: 500;
-	src: url(../assets/fonts/Inter-Medium.woff2);
+  font-family: "Inter";
+  font-display: swap;
+  font-weight: 500;
+  src: url(../assets/fonts/Inter-Medium.woff2);
 }
 @font-face {
-	font-family: 'Inter';
-    font-display: swap;
-    font-weight: 600;
-	src: url(../assets/fonts/Inter-SemiBold.woff2);
+  font-family: "Inter";
+  font-display: swap;
+  font-weight: 600;
+  src: url(../assets/fonts/Inter-SemiBold.woff2);
 }
 @font-face {
-	font-family: 'Inter';
-    font-display: swap;
-    font-weight: 700;
-	src: url(../assets/fonts/Inter-Bold.woff2);
+  font-family: "Inter";
+  font-display: swap;
+  font-weight: 700;
+  src: url(../assets/fonts/Inter-Bold.woff2);
 }
 
 html {
-    background: #E7F6FF;
-    min-height: 100%;
+  background: #e7f6ff;
+  min-height: 100%;
+  font-size: 10px;
 }
 
 *,
 *:before,
 *:after {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    line-height: 1.2;
-    min-height: 100%;
-	overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 #root {
-    min-height: 100%;
-    padding-bottom: 50px;
+  min-height: 100%;
+  padding-bottom: 50px;
 }
 
 .App {
-    margin-top: 40px;
-    min-height: 100%;
-    background: var(--light);
-    color: var(--dark);
-    border-radius: 20px;
-    padding-bottom: 50px;
+  margin-top: 40px;
+  min-height: 100%;
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 20px;
+  padding-bottom: 50px;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  overflow: hidden;
 }
 
 .container {
+  margin: 0 auto;
+  &__inner {
     margin: 0 auto;
-    &__inner {
-        margin: 0 auto;
-        padding: 0 4vw;
-    }
+    padding: 0 4vw;
+  }
 }
 
 .title {
-    &-main {
-        font-weight: 700;
-        font-size: 38px;
-        line-height: 46px;
-        color: var(--accent);
-    }
+  &-main {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+    color: var(--accent);
+  }
 
-    &-section {
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 39px;
-        color: var(--dark);
-    }
+  &-section {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: var(--dark);
+  }
 }
 
+@import url(./Drawer.scss);
 @import url(./Header.scss);
 @import url(./Hero.scss);
 @import url(./All.scss);
+@import url(./media.scss);

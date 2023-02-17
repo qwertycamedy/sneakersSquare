@@ -13,9 +13,23 @@
             }
         }
     }
+    &__clear {
+        color: var(--light-grey);
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%) scale(1) !important;
+
+        @media(any-hover: hover) {
+            &:hover {
+                transform: translateY(-50%) scale(1.15) !important;
+            }
+        }
+    }
 
     &__input {
         padding-left: 45px;
+        padding-right: 45px;
 
         @media(any-hover: hover) {
             &:hover {

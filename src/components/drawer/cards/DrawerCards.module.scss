@@ -1,0 +1,11 @@
+.cards {
+    --card-height: 105px;
+    --elems: 4;
+    --gap: 20px;
+    height: calc(var(--card-height) * var(--elems) + var(--gap) * (var(--elems) - 1) + 1px);
+    max-height: calc(var(--card-height) * var(--elems) + var(--gap) * (var(--elems) - 1) + 1px);
+    overflow:scroll;
+    flex: 1 0 auto;
+    scrollbar-color: var(--accent) var(--light-grey);
+    scrollbar-width: thin;
+}

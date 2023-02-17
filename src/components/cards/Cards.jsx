@@ -1,17 +1,22 @@
-import React from 'react'
-import Card from './card/Card'
-import cl from './Cards.module.scss'
+import React from "react";
+import Card from "./card/Card";
+import cl from "./Cards.module.scss";
 
-const Cards = ({cards}) => {
+const Cards = ({ cards, onLikeToggle, onAddToggle, searchValue }) => {
   return (
     <div className={cl.cards}>
-        {
-            cards.map(card => (
-                <Card key={card.id} card={card} />
-            ))
-        }
+      {cards
+      .filter(card => card.title.toLowerCase().includes(searchValue))
+      .map(card => (
+        <Card
+          key={card.id}
+          card={card}
+          onLikeToggle={onLikeToggle}
+          onAddToggle={onAddToggle}
+        />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;

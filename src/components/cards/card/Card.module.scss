@@ -75,5 +75,9 @@
             width: 14px;
             height: 14px;
         }
+
+        &:hover {
+            color: var(--light);
+        }
     }
 }

@@ -1,13 +1,6 @@
 .cards {
-    --elems: 4;
-    --gap: 40px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     
-    gap: var(--gap);
-
-    > div {
-        width: calc((100% - (var(--elems) - 1) * var(--gap)) / (var(--elems)));
-    }
+    grid-gap: 40px;
 }
