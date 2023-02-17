@@ -3,7 +3,7 @@ import MyBtnSquare from "../../../../UI/btn-square/MyBtnSquare";
 import { IoClose } from "react-icons/io5";
 import cl from "./DrawerCard.module.scss";
 
-const DrawerCard = ({ card, onAddToggle }) => {
+const DrawerCard = ({ card, remove }) => {
   return (
     <div className={cl.card}>
       <div className="flex gap-4 items-center">
@@ -13,7 +13,7 @@ const DrawerCard = ({ card, onAddToggle }) => {
           <div className={cl.price}>{card.price} $</div>
         </div>
       </div>
-      <MyBtnSquare onClick={() => onAddToggle(card.id)}>
+      <MyBtnSquare onClick={() => remove(card)}>
         <IoClose />
       </MyBtnSquare>
     </div>

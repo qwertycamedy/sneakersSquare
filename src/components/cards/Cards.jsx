@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./card/Card";
 import cl from "./Cards.module.scss";
 
-const Cards = ({ cards, onLikeToggle, onAddToggle, searchValue }) => {
+const Cards = ({ cards, addToCart, searchValue }) => {
   return (
     <div className={cl.cards}>
       {cards
@@ -11,8 +11,7 @@ const Cards = ({ cards, onLikeToggle, onAddToggle, searchValue }) => {
         <Card
           key={card.id}
           card={card}
-          onLikeToggle={onLikeToggle}
-          onAddToggle={onAddToggle}
+          addToCart={addToCart}
         />
       ))}
     </div>

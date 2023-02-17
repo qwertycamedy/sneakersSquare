@@ -7,8 +7,7 @@ import Cards from "../cards/Cards";
 
 const All = ({
   cards,
-  onLikeToggle,
-  onAddToggle,
+  addToCart,
   searchValue,
   searchValueChange,
   searchValueClear,
@@ -42,8 +41,7 @@ const All = ({
           </div>
           <Cards
             cards={cards}
-            onLikeToggle={onLikeToggle}
-            onAddToggle={onAddToggle}
+            addToCart={addToCart}
             searchValue={searchValue}
           />
         </div>

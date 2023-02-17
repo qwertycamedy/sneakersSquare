@@ -5,6 +5,7 @@ import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import "./styles/App.scss";
 import Drawer from "./components/drawer/Drawer";
+import axios from "axios";
 
 function App() {
   const [cartPrices] = useState([
@@ -20,51 +21,37 @@ function App() {
     },
   ]);
   const [allCards, setAllCards] = useState([]);
+  const [cartCards, setCartCards] = useState([]);
   const [cartOpened, setCartOpened] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
-  useEffect(
-    () =>
-      fetch(
+  // data of api
+  useEffect(() => {
+    axios
+      .get(
         "https://63ee4fc1388920150ddd704c.mockapi.io/sneakers-square/products"
       )
-        .then(res => {
-          return res.json();
-        })
-        .then(json => {
-          setAllCards(json);
-        }),
-    []
-  );
+      .then(res => {
+        setAllCards(res.data);
+      });
+  }, []);
 
+  //cart
   const onCartClick = () => {
     setCartOpened(!cartOpened);
   };
-  const onLikeToggle = id => {
-    setAllCards(
-      allCards.map(card => {
-        if (card.id === id) {
-          card.isLiked = !card.isLiked;
-        }
-        return card;
-      })
-    );
+  const addToCart = card => {
+    setCartCards(prev => [...prev, card]);
   };
-  const onAddToggle = id => {
-    setAllCards(
-      allCards.map(card => {
-        if (card.id === id) {
-          card.isAdded = !card.isAdded;
-        }
-        return card;
-      })
-    );
+  const removeFromCart = card => {
+    setCartCards(cartCards.filter(c => c !== card));
   };
+  //search
   const onSearchValueChange = e => {
     setSearchValue(e.target.value);
   };
   const onSearchValueClear = e => {
-    setSearchValue('');
+    setSearchValue("");
   };
 
   return (
@@ -72,20 +59,17 @@ function App() {
       <div className="container">
         <div className="App">
           <Drawer
-            cards={allCards}
+            cards={cartCards}
             cartPrices={cartPrices}
             opened={cartOpened}
             onHide={onCartClick}
-            onAddToggle={onAddToggle}
+            removeFromCart={removeFromCart}
           />
-          <Header
-            onCartClick={onCartClick}
-          />
+          <Header onCartClick={onCartClick} />
           <Hero />
           <All
             cards={allCards}
-            onLikeToggle={onLikeToggle}
-            onAddToggle={onAddToggle}
+            addToCart={addToCart}
             searchValue={searchValue}
             setSearchValue={setSearchValue}
             searchValueChange={onSearchValueChange}

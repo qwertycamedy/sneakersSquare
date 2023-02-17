@@ -6,7 +6,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 import MyBtnIcon from "../../UI/btn-icon/MyBtnIcon";
 import { IoClose } from "react-icons/io5";
 
-const Drawer = ({ cards, cartPrices, opened, onHide, onAddToggle }) => {
+const Drawer = ({ cards, cartPrices, opened, onHide, removeFromCart }) => {
   return (
     <div
       className={
@@ -26,7 +26,7 @@ const Drawer = ({ cards, cartPrices, opened, onHide, onAddToggle }) => {
             <IoClose />
           </MyBtnIcon>
         </div>
-        <DrawerCards cards={cards} onAddToggle={onAddToggle} />
+        <DrawerCards cards={cards} remove={removeFromCart} />
         <div className="grow-0 w-full mt-auto">
           <PriceList items={cartPrices} />
           <MyBtn classNames="drawer__btn">
