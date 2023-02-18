@@ -34,17 +34,62 @@ function App() {
       .then(res => {
         setAllCards(res.data);
       });
+    axios
+      .get(
+        "https://63ee4fc1388920150ddd704c.mockapi.io/sneakers-square/cart-products"
+      )
+      .then(res => {
+        setCartCards(res.data);
+      });
   }, []);
 
   //cart
-  const onCartClick = () => {
+  const onCart = () => {
     setCartOpened(!cartOpened);
   };
   const addToCart = card => {
-    setCartCards(prev => [...prev, card]);
+    if (card.isAdded === false) {
+      setCartCards(prev => [
+        ...prev,
+        {
+          id: card.id,
+          img: card.img,
+          title: card.title,
+          price: card.price,
+          isLiked: card.islLiked,
+          isAdded: true,
+        },
+      ]);
+      setAllCards([
+        ...allCards.map(allCard => {
+          if (allCard.id === card.id) {
+            allCard.isAdded = true;
+          }
+
+          return allCard;
+        }),
+      ]);
+      axios.post(
+        "https://63ee4fc1388920150ddd704c.mockapi.io/sneakers-square/cart-products",
+        card
+      );
+    }
   };
+
   const removeFromCart = card => {
-    setCartCards(cartCards.filter(c => c !== card));
+    setCartCards(prev => prev.filter(item => item.id !== card.id));
+    setAllCards([
+      ...allCards.map(allCard => {
+        if (allCard.id === card.id) {
+          allCard.isAdded = false;
+        }
+
+        return allCard;
+      }),
+    ]);
+    axios.delete(
+      `https://63ee4fc1388920150ddd704c.mockapi.io/sneakers-square/cart-products/${card.id}`
+    );
   };
   //search
   const onSearchValueChange = e => {
@@ -62,10 +107,10 @@ function App() {
             cards={cartCards}
             cartPrices={cartPrices}
             opened={cartOpened}
-            onHide={onCartClick}
-            removeFromCart={removeFromCart}
+            onHide={onCart}
+            onRemove={removeFromCart}
           />
-          <Header onCartClick={onCartClick} />
+          <Header onCart={onCart} />
           <Hero />
           <All
             cards={allCards}

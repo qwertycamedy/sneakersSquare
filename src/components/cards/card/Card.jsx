@@ -36,10 +36,10 @@ const Card = ({ card, addToCart }) => {
           <span>{card.price} $</span>
         </div>
         <MyBtnSquare
-          classNames={!isAddedToCart ? cl.add : cl.add + " " + cl.added}
+          classNames={!card.isAdded ? cl.add : cl.add + " " + cl.added}
           onClick={onCartClick}
         >
-          {!isAddedToCart ? <AiOutlinePlus /> : <AiOutlineCheck />}
+          {!card.isAdded ? <AiOutlinePlus /> : <AiOutlineCheck />}
         </MyBtnSquare>
       </div>
     </div>
