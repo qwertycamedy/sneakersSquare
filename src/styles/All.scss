@@ -28,8 +28,8 @@
     }
 
     &__input {
-        padding-left: 45px;
-        padding-right: 45px;
+        padding-left: 45px !important;
+        padding-right: 45px !important;
 
         @media(any-hover: hover) {
             &:hover {

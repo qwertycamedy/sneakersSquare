@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineCheck, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
 import MyBtnSquare from "../../../UI/btn-square/MyBtnSquare";
 import cl from "./Card.module.scss";
 
-const Card = ({ card, addToCart }) => {
-  const [isAddedToFavorite, setIsAddedToFavorite] = useState(false);
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
-
+const Card = ({ card, addToCart, addToFav }) => {
   const onFavClick = () => {
-    setIsAddedToFavorite(!isAddedToFavorite);
+    addToFav(card);
   }
   const onCartClick = () => {
     addToCart(card);
-    setIsAddedToCart(!isAddedToCart);
   }
   return (
     <div className={cl.card + " " + card.classNames}>
       <MyBtnSquare
-        classNames={!isAddedToFavorite ? cl.like : cl.like + " " + cl.liked}
+        classNames={!card.isLiked ? cl.like : cl.like + " " + cl.liked}
         onClick={onFavClick}
       >
         <AiOutlineHeart />

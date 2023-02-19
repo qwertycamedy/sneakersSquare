@@ -1,21 +1,28 @@
 .logo {
-    gap: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    img {
-        width: 76px;
-        max-width: unset;
-    }
+  gap: 14px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s linear, filter 0.2s linear;
+  img {
+    width: 76px;
+    max-width: unset;
+  }
+  > span {
     > span {
-        > span {
-            &:first-child {
-                color: var(--accent);
-            }
+      &:first-child {
+        color: var(--accent);
+      }
 
-            &:last-child {
-                color: var(--grey);
-            }
-        }
+      &:last-child {
+        color: var(--grey);
+      }
     }
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.2));
+    }
+  }
 }

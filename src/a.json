@@ -1,66 +1,66 @@
 [
-    {
-      "id": 1,
-      "img": "allCardImg1",
-      "title": "Nike Kyrie Flytrap IV",
-      "price": "150",
-      "isLiked": false,
-      "isAdded": true
-    },
-    {
-      "id": 2,
-      "img": "allCardImg2",
-      "title": "Jordan Air Jordan 11",
-      "price": "100",
-      "isLiked": true,
-      "isAdded": false
-    },
-    {
-      "id": 3,
-      "img": "allCardImg3",
-      "title": "Nike Kyrie 7",
-      "price": "70",
-      "isLiked": false,
-      "isAdded": false
-    },
-    {
-      "id": 4,
-      "img": "allCardImg4",
-      "title": "Nike LeBron XVIII",
-      "price": "90",
-      "isLiked": false,
-      "isAdded": false
-    },
-    {
-      "id": 5,
-      "img": "allCardImg5",
-      "title": "Nike Air Max 270",
-      "price": "150",
-      "isLiked": false,
-      "isAdded": false
-    },
-    {
-      "id": 6,
-      "img": "allCardImg6",
-      "title": "Aka Boku Future Rider",
-      "price": "150",
-      "isLiked": false,
-      "isAdded": false
-    },
-    {
-      "id": 7,
-      "img": "allCardImg7",
-      "title": "Nike Lebron XVIII Low",
-      "price": "150",
-      "isLiked": false,
-      "isAdded": false
-    },
-    {
-      "id": 8,
-      "img": "allCardImg8",
-      "title": "Under Armour Curry 8",
-      "price": "150",
-      "isLiked": false,
-      "isAdded": false
-    }
-  ]
+  {
+    "id": 1,
+    "img": "./assets/img/all-1.jpg",
+    "title": "Nike Kyrie Flytrap IV",
+    "price": "150",
+    "isLiked": false,
+    "isAdded": false
+  },
+  {
+    "id": 2,
+    "img": "./assets/img/all-2.jpg",
+    "title": "Jordan Air Jordan 11",
+    "price": "100",
+    "isLiked": false,
+    "isAdded": false
+  },
+  {
+    "id": 3,
+    "img": "./assets/img/all-3.jpg",
+    "title": "Nike Kyrie 7",
+    "price": "70",
+    "isLiked": false,
+    "isAdded": false
+  },
+  {
+    "id": 4,
+    "img": "./assets/img/all-4.jpg",
+    "title": "Nike LeBron XVIII",
+    "price": "90",
+    "isLiked": false,
+    "isAdded": false
+  },
+  {
+    "id": 5,
+    "img": "./assets/img/all-5.jpg",
+    "title": "Nike Air Max 270",
+    "price": "150",
+    "isLiked": false,
+    "isAdded": false
+  },
+  {
+    "id": 6,
+    "img": "./assets/img/all-6.jpg",
+    "title": "Aka Boku Future Rider",
+    "price": "150",
+    "isLiked": false,
+    "isAdded": false
+  },
+  {
+    "id": 7,
+    "img": "./assets/img/all-7.jpg",
+    "title": "Nike Lebron XVIII Low",
+    "price": "150",
+    "isLiked": false,
+    "isAdded": false
+  },
+  {
+    "id": 8,
+    "img": "./assets/img/all-8.jpg",
+    "title": "Under Armour Curry 8",
+    "price": "150",
+    "isLiked": false,
+    "isAdded": false
+  }
+]

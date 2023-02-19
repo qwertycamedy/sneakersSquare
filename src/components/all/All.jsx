@@ -8,6 +8,7 @@ import Cards from "../cards/Cards";
 const All = ({
   cards,
   addToCart,
+  addToFav,
   searchValue,
   searchValueChange,
   searchValueClear,
@@ -42,6 +43,7 @@ const All = ({
           <Cards
             cards={cards}
             addToCart={addToCart}
+            addToFav={addToFav}
             searchValue={searchValue}
           />
         </div>

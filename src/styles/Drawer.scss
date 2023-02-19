@@ -112,13 +112,15 @@
   }
 
   &__btn {
-    width: 100%;
+    width: 100% !important;
+    max-width: 325px !important;
+    margin: 0 auto;
     position: relative;
-    border-radius: 18px;
+    border-radius: 18px !important;
 
     @media (any-hover: hover) {
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.05) !important;
       }
     }
 

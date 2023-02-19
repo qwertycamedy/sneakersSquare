@@ -42,7 +42,7 @@ const Drawer = ({ cards, cartPrices, opened, onHide, onRemove }) => {
           <>
             <div className="empty">
               <img className="empty__img mb-5" src={emptyImg} alt="empty" />
-              <div className="empty__title mb-2">Корзина пустая</div>
+              <div className="empty__title mb-2">Cart is empty</div>
               <div className="empty__subtitle mb-10">
                 Add at least one pair of sneakers to order.
               </div>
