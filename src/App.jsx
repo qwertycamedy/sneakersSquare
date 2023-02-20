@@ -87,26 +87,38 @@ function App() {
       price: "16.25",
     },
   ]);
-  const [cartCards, setCartCards] = useState([]);
+  const [cartCards, setCartCards] = useState([
+    // {
+    //   id: 1,
+    //   img: "./assets/img/all-1.jpg",
+    //   title: "Nike Kyrie Flytrap IV",
+    //   price: "150",
+    //   isLiked: false,
+    //   isAdded: true,
+    // },
+  ]);
   const [favCards, setFavCards] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   // data of api
   // useEffect(() => {
-  //   axios
-  //     .get(
+  //   async function fetchData() {
+  // setIsLoading(true);
+  //     const cartCards = await axios.get(
   //       "https://63ee4fc1388920150ddd704c.mockapi.io/sneakers-square/cart-products"
-  //     )
-  //     .then(res => {
-  //       setCartCards(res.data);
-  //     });
-  //   axios
-  //     .get(
+  //     );
+  //     const favCards = await axios.get(
   //       "https://63ee4fc1388920150ddd704c.mockapi.io/sneakers-square/favorites"
-  //     )
-  //     .then(res => {
-  //       setFavCards(res.data);
-  //     });
+  //     );
+
+  // setIsLoading(false);
+
+  //     setCartCards(cartCards.data);
+  //     setFavCards(favCards.data);
+  //   }
+
+  //   fetchData();
   // }, []);
 
   //cart
@@ -115,11 +127,13 @@ function App() {
   };
   const addToCart = async card => {
     try {
-      if (cartCards.find(item => item.id === card.id)) {
-        setCartCards(prev => prev.filter(item => item.id !== card.id));
+      if (cartCards.find(item => Number(item.id) === Number(card.id))) {
+        setCartCards(prev =>
+          prev.filter(item => Number(item.id) !== Number(card.id))
+        );
         setAllCards([
           ...allCards.map(allCard => {
-            if (allCard.id === card.id) {
+            if (Number(allCard.id) === Number(card.id)) {
               allCard.isAdded = false;
             }
 
@@ -128,7 +142,7 @@ function App() {
         ]);
         setFavCards([
           ...favCards.map(favCard => {
-            if (favCard.id === card.id) {
+            if (Number(favCard.id) === Number(card.id)) {
               favCard.isAdded = false;
             }
 
@@ -153,7 +167,7 @@ function App() {
         ]);
         setAllCards([
           ...allCards.map(allCard => {
-            if (allCard.id === card.id) {
+            if (Number(allCard.id) === Number(card.id)) {
               allCard.isAdded = true;
             }
 
@@ -162,7 +176,7 @@ function App() {
         ]);
         setFavCards([
           ...favCards.map(favCard => {
-            if (favCard.id === card.id) {
+            if (Number(favCard.id) === Number(card.id)) {
               favCard.isAdded = true;
             }
 
@@ -170,16 +184,18 @@ function App() {
           }),
         ]);
       }
-    } catch {
+    } catch (error) {
       alert("doesn't work");
     }
   };
 
   const removeFromCart = card => {
-    setCartCards(prev => prev.filter(item => item.id !== card.id));
+    setCartCards(prev =>
+      prev.filter(item => Number(item.id) !== Number(card.id))
+    );
     setAllCards([
       ...allCards.map(allCard => {
-        if (allCard.id === card.id) {
+        if (Number(allCard.id) === Number(card.id)) {
           allCard.isAdded = false;
         }
 
@@ -188,7 +204,7 @@ function App() {
     ]);
     setFavCards([
       ...favCards.map(favCard => {
-        if (favCard.id === card.id) {
+        if (Number(favCard.id) === Number(card.id)) {
           favCard.isAdded = false;
         }
 
@@ -204,10 +220,12 @@ function App() {
   const addToFav = async card => {
     try {
       if (favCards.find(item => item.id === card.id)) {
-        setFavCards(prev => prev.filter(item => item.id !== card.id));
+        setFavCards(prev =>
+          prev.filter(item => Number(item.id) !== Number(card.id))
+        );
         setAllCards([
           ...allCards.map(allCard => {
-            if (allCard.id === card.id) {
+            if (Number(allCard.id) === Number(card.id)) {
               allCard.isLiked = false;
             }
 
@@ -232,7 +250,7 @@ function App() {
         ]);
         setAllCards([
           ...allCards.map(allCard => {
-            if (allCard.id === card.id) {
+            if (Number(allCard.id) === Number(card.id)) {
               allCard.isLiked = true;
             }
 
@@ -240,7 +258,7 @@ function App() {
           }),
         ]);
       }
-    } catch {
+    } catch (error) {
       alert("doesn't work");
     }
   };
@@ -252,6 +270,15 @@ function App() {
   const onSearchValueClear = e => {
     setSearchValue("");
   };
+
+  //loading
+  const onLoading = () => {
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    setTimeout(onLoading, 1200);
+  }, []);
 
   return (
     <BrowserRouter>
@@ -271,11 +298,13 @@ function App() {
               element={
                 <Home
                   cards={allCards}
+                  cartCards={cartCards}
                   addToCart={addToCart}
                   addToFav={addToFav}
                   searchValue={searchValue}
                   searchValueChange={onSearchValueChange}
                   searchValueClear={onSearchValueClear}
+                  isLoading={isLoading}
                 />
               }
             />
@@ -284,9 +313,11 @@ function App() {
               element={
                 <Favorites
                   cards={favCards}
+                  cartCards={cartCards}
                   addToCart={addToCart}
                   addToFav={addToFav}
                   searchValue={searchValue}
+                  isLoading={isLoading}
                 />
               }
             />

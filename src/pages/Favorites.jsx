@@ -7,7 +7,14 @@ import { Link } from "react-router-dom";
 import MyBtnSquare from "../UI/btn-square/MyBtnSquare";
 import { SlArrowLeft } from "react-icons/sl";
 
-const Favorites = ({ cards, addToCart, addToFav, searchValue }) => {
+const Favorites = ({
+  cards,
+  cartCards,
+  addToCart,
+  addToFav,
+  searchValue,
+  isLoading,
+}) => {
   return (
     <div className="favorites">
       <div className="container__inner">
@@ -24,9 +31,11 @@ const Favorites = ({ cards, addToCart, addToFav, searchValue }) => {
               </div>
               <Cards
                 cards={cards}
+                cartCards={cartCards}
                 addToCart={addToCart}
                 addToFav={addToFav}
                 searchValue={searchValue}
+                isLoading={isLoading}
               />
             </>
           ) : (

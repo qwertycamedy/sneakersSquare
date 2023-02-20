@@ -7,11 +7,13 @@ import Cards from "../cards/Cards";
 
 const All = ({
   cards,
+  cartCards,
   addToCart,
   addToFav,
   searchValue,
   searchValueChange,
   searchValueClear,
+  isLoading,
 }) => {
   return (
     <section className="all">
@@ -42,9 +44,11 @@ const All = ({
           </div>
           <Cards
             cards={cards}
+            cartCards={cartCards}
             addToCart={addToCart}
             addToFav={addToFav}
             searchValue={searchValue}
+            isLoading={isLoading}
           />
         </div>
       </div>
