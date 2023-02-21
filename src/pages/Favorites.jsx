@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import Cards from "../components/cards/Cards";
 import MyBtn from "../UI/btn/MyBtn";
@@ -6,20 +6,22 @@ import emptyImg from "../assets/img/empty.png";
 import { Link } from "react-router-dom";
 import MyBtnSquare from "../UI/btn-square/MyBtnSquare";
 import { SlArrowLeft } from "react-icons/sl";
+import AppContext from "../context";
 
 const Favorites = ({
-  cards,
-  cartCards,
   addToCart,
   addToFav,
   searchValue,
   isLoading,
 }) => {
+  const {favCards, cartCards} = useContext(AppContext);
+
+
   return (
     <div className="favorites">
       <div className="container__inner">
         <div className="favorites__inner">
-          {cards.length > 0 ? (
+          {favCards.length > 0 ? (
             <>
               <div className="flex gap-6 items-center mb-10">
                 <Link to="/">
@@ -30,7 +32,7 @@ const Favorites = ({
                 <h1 className="title-section">Favorites</h1>
               </div>
               <Cards
-                cards={cards}
+                cards={favCards}
                 cartCards={cartCards}
                 addToCart={addToCart}
                 addToFav={addToFav}

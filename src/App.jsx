@@ -1,13 +1,49 @@
 import { React, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AppContext from "./context";
 import Header from "./components/header/Header";
 import "./styles/App.scss";
 import Drawer from "./components/drawer/Drawer";
 import axios from "axios";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
+import heroImg1 from "./assets/img/hero-1.png";
+
 
 function App() {
+  const [heroSlides] = useState([
+    {
+      id: 0,
+      title: "Just Do It!",
+      img: heroImg1,
+      bgColor: "#F2F2F2",
+      btn: {
+        classNames: "uppercase",
+        text: "BUY",
+      },
+    },
+    {
+      id: 1,
+      title: "Basketball in the heart!",
+      subtitle: "As Kobe Bryant willed...",
+      img: heroImg1,
+      bgColor: "#F2F2F2",
+      btn: {
+        classNames: "uppercase",
+        text: "BUY",
+      },
+    },
+    {
+      id: 2,
+      title: "Sneaker's culture!",
+      img: heroImg1,
+      bgColor: "#F2F2F2",
+      btn: {
+        classNames: " uppercase",
+        text: "BUY",
+      },
+    },
+  ]);
   const [allCards, setAllCards] = useState([
     {
       id: 1,
@@ -277,11 +313,12 @@ function App() {
   };
 
   useEffect(() => {
-    setTimeout(onLoading, 1200);
+    setTimeout(onLoading, 1000);
   }, []);
 
   return (
     <BrowserRouter>
+      <AppContext.Provider value={{heroSlides, allCards, cartCards, favCards}}>
       <div className="container">
         <div className="App">
           <Drawer
@@ -297,6 +334,7 @@ function App() {
               path="/"
               element={
                 <Home
+                  heroSlides={heroSlides}
                   cards={allCards}
                   cartCards={cartCards}
                   addToCart={addToCart}
@@ -312,8 +350,6 @@ function App() {
               path="favorites"
               element={
                 <Favorites
-                  cards={favCards}
-                  cartCards={cartCards}
                   addToCart={addToCart}
                   addToFav={addToFav}
                   searchValue={searchValue}
@@ -324,6 +360,7 @@ function App() {
           </Routes>
         </div>
       </div>
+      </AppContext.Provider>
     </BrowserRouter>
   );
 }

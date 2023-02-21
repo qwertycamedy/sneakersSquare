@@ -5,43 +5,9 @@ import "swiper/css";
 import 'swiper/css/effect-fade';
 import "swiper/css/navigation";
 import MyBtn from "../../UI/btn/MyBtn";
-import heroImg1 from "../../assets/img/hero-1.png";
 import {SlArrowLeft, SlArrowRight} from 'react-icons/sl';
 
-const Hero = () => {
-  const [heroSlides, setHeroSlides] = useState([
-    {
-      id: 0,
-      title: "Just Do It!",
-      img: heroImg1,
-      bgColor: "#F2F2F2",
-      btn: {
-        classNames: "uppercase",
-        text: "BUY",
-      },
-    },
-    {
-      id: 1,
-      title: "Basketball in yourself!",
-      subtitle: "As Kobe Bryant willed...",
-      img: heroImg1,
-      bgColor: "#F2F2F2",
-      btn: {
-        classNames: "uppercase",
-        text: "BUY",
-      },
-    },
-    {
-      id: 2,
-      title: "Sneaker's culture!",
-      img: heroImg1,
-      bgColor: "#F2F2F2",
-      btn: {
-        classNames: " uppercase",
-        text: "BUY",
-      },
-    },
-  ]);
+const Hero = ({heroSlides}) => {
 
   const navPrev = React.useRef(null);
   const navNext = React.useRef(null);
