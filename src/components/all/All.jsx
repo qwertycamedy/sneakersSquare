@@ -16,7 +16,7 @@ const All = ({
   isLoading,
 }) => {
   return (
-    <section className="all">
+    <section className="all" id='all'>
       <div className="container__inner">
         <div className="all__inner">
           <div className="flex justify-between items-center mb-10">

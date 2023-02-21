@@ -69,13 +69,20 @@
   }
 
   &__btn {
-    width: 100%;
+    width: 100% !important;
+    max-width: 325px !important;
+    margin: 0 auto;
     position: relative;
-    border-radius: 18px;
+    border-radius: 18px !important;
+    &.disabled {
+      background: #bebebe;
+      pointer-events: none;
+      animation: btn-loading 1.5s ease-in-out infinite;
+    }
 
     @media (any-hover: hover) {
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.05) !important;
       }
     }
 
@@ -132,5 +139,25 @@
       right: 80%;
       transform: translateY(-50%);
     }
+  }
+}
+
+.success {
+  .empty {
+    &__title {
+      color: var(--accent);
+    }
+  }
+}
+
+@keyframes btn-loading {
+  0% {
+    opacity: 1
+  }
+  50% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 1;
   }
 }

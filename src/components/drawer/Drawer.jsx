@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import MyBtn from "../../UI/btn/MyBtn";
 import DrawerCards from "./cards/DrawerCards";
 import PriceList from "./priceList/PriceList";
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
+import { BsArrowRightShort } from "react-icons/bs";
 import MyBtnIcon from "../../UI/btn-icon/MyBtnIcon";
 import { IoClose } from "react-icons/io5";
 import emptyImg from "../../assets/img/empty.png";
+import successImg from "../../assets/img/success.png";
+import Info from "../info/Info";
+import AppContext from "../../context";
 
 const Drawer = ({ cards, cartPrices, opened, onHide, onRemove }) => {
+  const [orderId, setOrderId] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const {
+    setCartCards,
+    isOrderComplete,
+    setIsOrderComplete,
+    setOrders,
+  } = useContext(AppContext);
+
+  const onClickOrder = () => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsOrderComplete(true);
+      setOrderId(orderId + 1);
+      setOrders(prev => [
+        ...prev,
+        {
+          id: orderId,
+          orders: cards,
+        },
+      ]);
+      setCartCards([]);
+      setIsLoading(false);
+    }, 1000);
+  };
+
   return (
     <div
       className={
@@ -32,7 +61,7 @@ const Drawer = ({ cards, cartPrices, opened, onHide, onRemove }) => {
             <DrawerCards cards={cards} onRemove={onRemove} />
             <div className="grow-0 w-full mt-auto">
               <PriceList items={cartPrices} />
-              <MyBtn classNames="drawer__btn">
+              <MyBtn classNames={`${!isLoading ? 'drawer__btn' : 'drawer__btn disabled'}`} onClick={onClickOrder}>
                 Place an order
                 <BsArrowRightShort />
               </MyBtn>
@@ -40,17 +69,23 @@ const Drawer = ({ cards, cartPrices, opened, onHide, onRemove }) => {
           </>
         ) : (
           <>
-            <div className="empty">
-              <img className="empty__img mb-5" src={emptyImg} alt="empty" />
-              <div className="empty__title mb-2">Cart is empty</div>
-              <div className="empty__subtitle mb-10">
-                Add at least one pair of sneakers to order.
-              </div>
-              <MyBtn classNames="empty__btn w-full" onClick={onHide}>
-                <BsArrowLeftShort />
-                Go back
-              </MyBtn>
-            </div>
+            {isOrderComplete ? (
+              <Info
+                classNames="success"
+                img={successImg}
+                title="Order up!"
+                subtitle={`Your order #${orderId} will soon be transferred to courier delivery`}
+                onHide={onHide}
+                isLoading={isLoading}
+              />
+            ) : (
+              <Info
+                img={emptyImg}
+                title="Cart is empty"
+                subtitle="Add at least one pair of sneakers to order."
+                onHide={onHide}
+              />
+            )}
           </>
         )}
       </div>

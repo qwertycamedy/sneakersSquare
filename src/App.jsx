@@ -4,11 +4,10 @@ import AppContext from "./context";
 import Header from "./components/header/Header";
 import "./styles/App.scss";
 import Drawer from "./components/drawer/Drawer";
-import axios from "axios";
+// import axios from "axios";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import heroImg1 from "./assets/img/hero-1.png";
-
 
 function App() {
   const [heroSlides] = useState([
@@ -25,7 +24,7 @@ function App() {
     {
       id: 1,
       title: "Basketball in the heart!",
-      subtitle: "As Kobe Bryant willed...",
+      subtitle: "As our ancestors have bequeathed...",
       img: heroImg1,
       bgColor: "#F2F2F2",
       btn: {
@@ -134,7 +133,9 @@ function App() {
     // },
   ]);
   const [favCards, setFavCards] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   // data of api
@@ -219,6 +220,8 @@ function App() {
             return favCard;
           }),
         ]);
+
+        setIsOrderComplete(false);
       }
     } catch (error) {
       alert("doesn't work");
@@ -318,48 +321,59 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AppContext.Provider value={{heroSlides, allCards, cartCards, favCards}}>
-      <div className="container">
-        <div className="App">
-          <Drawer
-            cards={cartCards}
-            cartPrices={cartPrices}
-            opened={cartOpened}
-            onHide={onCart}
-            onRemove={removeFromCart}
-          />
-          <Header onCart={onCart} searchValueClear={onSearchValueClear} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  heroSlides={heroSlides}
-                  cards={allCards}
-                  cartCards={cartCards}
-                  addToCart={addToCart}
-                  addToFav={addToFav}
-                  searchValue={searchValue}
-                  searchValueChange={onSearchValueChange}
-                  searchValueClear={onSearchValueClear}
-                  isLoading={isLoading}
-                />
-              }
+      <AppContext.Provider
+        value={{
+          heroSlides,
+          allCards,
+          cartCards,
+          favCards,
+          setCartCards,
+          isOrderComplete,
+          setIsOrderComplete,
+          setOrders,
+        }}
+      >
+        <div className="container">
+          <div className="App">
+            <Drawer
+              cards={cartCards}
+              cartPrices={cartPrices}
+              opened={cartOpened}
+              onHide={onCart}
+              onRemove={removeFromCart}
             />
-            <Route
-              path="favorites"
-              element={
-                <Favorites
-                  addToCart={addToCart}
-                  addToFav={addToFav}
-                  searchValue={searchValue}
-                  isLoading={isLoading}
-                />
-              }
-            />
-          </Routes>
+            <Header onCart={onCart} searchValueClear={onSearchValueClear} />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    heroSlides={heroSlides}
+                    cards={allCards}
+                    cartCards={cartCards}
+                    addToCart={addToCart}
+                    addToFav={addToFav}
+                    searchValue={searchValue}
+                    searchValueChange={onSearchValueChange}
+                    searchValueClear={onSearchValueClear}
+                    isLoading={isLoading}
+                  />
+                }
+              />
+              <Route
+                path="favorites"
+                element={
+                  <Favorites
+                    addToCart={addToCart}
+                    addToFav={addToFav}
+                    searchValue={searchValue}
+                    isLoading={isLoading}
+                  />
+                }
+              />
+            </Routes>
+          </div>
         </div>
-      </div>
       </AppContext.Provider>
     </BrowserRouter>
   );

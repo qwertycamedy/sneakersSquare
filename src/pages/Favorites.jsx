@@ -1,21 +1,14 @@
 import React, { useContext } from "react";
-import { BsArrowLeftShort } from "react-icons/bs";
 import Cards from "../components/cards/Cards";
-import MyBtn from "../UI/btn/MyBtn";
 import emptyImg from "../assets/img/empty.png";
 import { Link } from "react-router-dom";
 import MyBtnSquare from "../UI/btn-square/MyBtnSquare";
 import { SlArrowLeft } from "react-icons/sl";
 import AppContext from "../context";
+import Info from "../components/info/Info";
 
-const Favorites = ({
-  addToCart,
-  addToFav,
-  searchValue,
-  isLoading,
-}) => {
-  const {favCards, cartCards} = useContext(AppContext);
-
+const Favorites = ({ addToCart, addToFav, searchValue, isLoading }) => {
+  const { favCards, cartCards } = useContext(AppContext);
 
   return (
     <div className="favorites">
@@ -41,19 +34,12 @@ const Favorites = ({
               />
             </>
           ) : (
-            <div className="empty">
-              <img className="empty__img mb-5" src={emptyImg} alt="empty" />
-              <div className="empty__title mb-2">No favorites :(</div>
-              <div className="empty__subtitle mb-10">
-                You haven't added anything to your favorites
-              </div>
-              <Link to="/" className="w-full">
-                <MyBtn classNames="empty__btn w-10">
-                  <BsArrowLeftShort />
-                  Go back
-                </MyBtn>
-              </Link>
-            </div>
+            <Info
+              img={emptyImg}
+              title="No favorites :("
+              subtitle="
+            You haven't added anything to your favorites"
+            />
           )}
         </div>
       </div>

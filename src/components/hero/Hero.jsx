@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { EffectFade, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import 'swiper/css/effect-fade';
+import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import MyBtn from "../../UI/btn/MyBtn";
-import {SlArrowLeft, SlArrowRight} from 'react-icons/sl';
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import { Link } from "react-scroll";
 
-const Hero = ({heroSlides}) => {
-
+const Hero = ({ heroSlides }) => {
   const navPrev = React.useRef(null);
   const navNext = React.useRef(null);
 
@@ -28,15 +28,15 @@ const Hero = ({heroSlides}) => {
                 prevEl: navPrev.current,
                 nextEl: navNext.current,
               }}
-              onSwiper={(swiper) => {
+              onSwiper={swiper => {
                 setTimeout(() => {
-                  swiper.params.navigation.prevEl = navPrev.current
-                  swiper.params.navigation.nextEl = navNext.current
-        
-                  swiper.navigation.destroy()
-                  swiper.navigation.init()
-                  swiper.navigation.update()
-                })
+                  swiper.params.navigation.prevEl = navPrev.current;
+                  swiper.params.navigation.nextEl = navNext.current;
+
+                  swiper.navigation.destroy();
+                  swiper.navigation.init();
+                  swiper.navigation.update();
+                });
               }}
             >
               {heroSlides.map(slide => (
@@ -56,19 +56,21 @@ const Hero = ({heroSlides}) => {
                     {slide.subtitle && (
                       <p className="hero__subtitle">{slide.subtitle}</p>
                     )}
-                    <MyBtn classNames={slide.btn.classNames}>
-                      {slide.btn.text}
-                    </MyBtn>
+                    <Link to="all" duration={600} smooth spy offset={-35}>
+                      <MyBtn classNames={slide.btn.classNames}>
+                        {slide.btn.text}
+                      </MyBtn>
+                    </Link>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
             <div className="hero__slide-nav">
-              <button className='hero__slide-nav-prev' ref={navPrev}>
+              <button className="hero__slide-nav-prev" ref={navPrev}>
                 <SlArrowLeft />
               </button>
-              <button className='hero__slide-nav-next' ref={navNext}>
-                <SlArrowRight/>
+              <button className="hero__slide-nav-next" ref={navNext}>
+                <SlArrowRight />
               </button>
             </div>
           </div>
