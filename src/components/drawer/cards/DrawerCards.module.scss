@@ -8,4 +8,10 @@
     flex: 1 0 auto;
     scrollbar-color: var(--accent) var(--light-grey);
     scrollbar-width: thin;
+
+    @media(max-width: 767px) {
+        --card-height: 90px;
+        --elems: 3;
+        --gap: 10px;
+    }
 }

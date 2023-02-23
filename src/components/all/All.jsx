@@ -19,7 +19,7 @@ const All = ({
     <section className="all" id='all'>
       <div className="container__inner">
         <div className="all__inner">
-          <div className="flex justify-between items-center mb-10">
+          <div className="all__top flex justify-between items-center mb-10">
             <h3 className="title-section">
               {
                 searchValue ? `Search for: "${searchValue}"` : 'All sneakers'

@@ -1,0 +1,29 @@
+@media(max-width: 767px) {
+    #root {
+        padding: 20px 0 !important;
+    }
+    .header {
+        padding: 15px 0;
+        &__inner {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
+    .drawer {
+        width: calc(100% - 30px);
+        left: 15px;
+        right: 15px;
+    }
+
+    .hero {
+        display: none;
+    }
+
+    .all {
+        &__top {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+}

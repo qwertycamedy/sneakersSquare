@@ -61,11 +61,11 @@ body {
 
 #root {
   min-height: 100%;
+  padding-top: 40px;
   padding-bottom: 50px;
 }
 
 .App {
-  margin-top: 40px;
   min-height: 100%;
   background: var(--light);
   color: var(--dark);
@@ -78,6 +78,7 @@ body {
 
 .container {
   margin: 0 auto;
+  padding: 0 15px;
   &__inner {
     margin: 0 auto;
     padding: 0 4vw;

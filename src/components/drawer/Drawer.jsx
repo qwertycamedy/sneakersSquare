@@ -10,7 +10,7 @@ import successImg from "../../assets/img/success.png";
 import Info from "../info/Info";
 import AppContext from "../../context";
 
-const Drawer = ({ cards, cartPrices, opened, onHide, onRemove }) => {
+const Drawer = ({ cards, opened, onHide, onRemove }) => {
   const [orderId, setOrderId] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -18,23 +18,24 @@ const Drawer = ({ cards, cartPrices, opened, onHide, onRemove }) => {
     isOrderComplete,
     setIsOrderComplete,
     setOrders,
+    totalPrice
   } = useContext(AppContext);
 
   const onClickOrder = () => {
     setIsLoading(true)
     setTimeout(() => {
       setIsOrderComplete(true);
-      setOrderId(orderId + 1);
-      setOrders(prev => [
-        ...prev,
-        {
-          id: orderId,
-          orders: cards,
-        },
-      ]);
       setCartCards([]);
       setIsLoading(false);
     }, 1000);
+    setOrderId(orderId + 1);
+    setOrders(prev => [
+      ...prev,
+      {
+        id: orderId,
+        cards,
+      },
+    ]);
   };
 
   return (
@@ -60,7 +61,7 @@ const Drawer = ({ cards, cartPrices, opened, onHide, onRemove }) => {
           <>
             <DrawerCards cards={cards} onRemove={onRemove} />
             <div className="grow-0 w-full mt-auto">
-              <PriceList items={cartPrices} />
+              <PriceList totalPrice={totalPrice} />
               <MyBtn classNames={`${!isLoading ? 'drawer__btn' : 'drawer__btn disabled'}`} onClick={onClickOrder}>
                 Place an order
                 <BsArrowRightShort />

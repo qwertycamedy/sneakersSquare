@@ -1,15 +1,18 @@
 import React from "react";
 
-const PriceList = ({items}) => {
+const PriceList = ({ totalPrice }) => {
   return (
     <ul className="drawer__price-list flex flex-col gap-5 mb-7">
-      {items.map(item => (
-        <li className="drawer__price-list-item" key={item.id}>
-          <span className="drawer__price-list-descr">{item.descr}</span>
-          <span className="drawer__price-list-dash"></span>
-          <span className="drawer__price-list-price">{item.price} $</span>
-        </li>
-      ))}
+      <li className="drawer__price-list-item">
+        <span className="drawer__price-list-descr">Total:</span>
+        <span className="drawer__price-list-dash"></span>
+        <span className="drawer__price-list-price">{totalPrice} $</span>
+      </li>
+      <li className="drawer__price-list-item">
+        <span className="drawer__price-list-descr">Tax 5%:</span>
+        <span className="drawer__price-list-dash"></span>
+        <span className="drawer__price-list-price">{totalPrice / 100 * 5} $</span>
+      </li>
     </ul>
   );
 };

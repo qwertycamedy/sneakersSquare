@@ -30,12 +30,14 @@ const Card = ({ card, isLoading, addToCart, addToFav }) => {
         </ContentLoader>
       ) : (
         <>
-          <MyBtnSquare
-            classNames={!card.isLiked ? cl.like : cl.like + " " + cl.liked}
-            onClick={onFavClick}
-          >
-            <AiOutlineHeart />
-          </MyBtnSquare>
+          {addToFav && (
+            <MyBtnSquare
+              classNames={!card.isLiked ? cl.like : cl.like + " " + cl.liked}
+              onClick={onFavClick}
+            >
+              <AiOutlineHeart />
+            </MyBtnSquare>
+          )}
           <img
             className={cl.img}
             width={133}
@@ -49,12 +51,14 @@ const Card = ({ card, isLoading, addToCart, addToFav }) => {
               <span>цена:</span>
               <span>{card.price} $</span>
             </div>
-            <MyBtnSquare
-              classNames={!card.isAdded ? cl.add : cl.add + " " + cl.added}
-              onClick={onCartClick}
-            >
-              {!card.isAdded ? <AiOutlinePlus /> : <AiOutlineCheck />}
-            </MyBtnSquare>
+            {addToCart && (
+              <MyBtnSquare
+                classNames={!card.isAdded ? cl.add : cl.add + " " + cl.added}
+                onClick={onCartClick}
+              >
+                {!card.isAdded ? <AiOutlinePlus /> : <AiOutlineCheck />}
+              </MyBtnSquare>
+            )}
           </div>
         </>
       )}

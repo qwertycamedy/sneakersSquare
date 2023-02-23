@@ -8,6 +8,7 @@ import Drawer from "./components/drawer/Drawer";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import heroImg1 from "./assets/img/hero-1.png";
+import Orders from "./pages/Orders";
 
 function App() {
   const [heroSlides] = useState([
@@ -110,18 +111,6 @@ function App() {
     },
   ]);
   const [cartOpened, setCartOpened] = useState(false);
-  const [cartPrices] = useState([
-    {
-      id: 1,
-      descr: "Total:",
-      price: "325",
-    },
-    {
-      id: 2,
-      descr: "Tax 5%:",
-      price: "16.25",
-    },
-  ]);
   const [cartCards, setCartCards] = useState([
     // {
     //   id: 1,
@@ -132,6 +121,10 @@ function App() {
     //   isAdded: true,
     // },
   ]);
+  const totalPrice = cartCards.reduce(
+    (sum, card) => Number(sum) + Number(card.price),
+    0
+  );
   const [favCards, setFavCards] = useState([]);
   const [orders, setOrders] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -310,6 +303,8 @@ function App() {
     setSearchValue("");
   };
 
+  //totalPrice
+
   //loading
   const onLoading = () => {
     setIsLoading(false);
@@ -319,6 +314,7 @@ function App() {
     setTimeout(onLoading, 1000);
   }, []);
 
+
   return (
     <BrowserRouter>
       <AppContext.Provider
@@ -327,17 +323,18 @@ function App() {
           allCards,
           cartCards,
           favCards,
+          orders,
           setCartCards,
           isOrderComplete,
           setIsOrderComplete,
           setOrders,
+          totalPrice,
         }}
       >
         <div className="container">
           <div className="App">
             <Drawer
               cards={cartCards}
-              cartPrices={cartPrices}
               opened={cartOpened}
               onHide={onCart}
               onRemove={removeFromCart}
@@ -364,6 +361,17 @@ function App() {
                 path="favorites"
                 element={
                   <Favorites
+                    addToCart={addToCart}
+                    addToFav={addToFav}
+                    searchValue={searchValue}
+                    isLoading={isLoading}
+                  />
+                }
+              />
+              <Route
+                path="orders"
+                element={
+                  <Orders
                     addToCart={addToCart}
                     addToFav={addToFav}
                     searchValue={searchValue}
