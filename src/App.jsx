@@ -10,6 +10,15 @@ import Favorites from "./pages/Favorites";
 import heroImg1 from "./assets/img/hero-1.png";
 import Orders from "./pages/Orders";
 
+import cardImg1 from "./assets/img/all-1.jpg";
+import cardImg2 from "./assets/img/all-2.jpg";
+import cardImg3 from "./assets/img/all-3.jpg";
+import cardImg4 from "./assets/img/all-4.jpg";
+import cardImg5 from "./assets/img/all-5.jpg";
+import cardImg6 from "./assets/img/all-6.jpg";
+import cardImg7 from "./assets/img/all-7.jpg";
+import cardImg8 from "./assets/img/all-8.jpg";
+
 function App() {
   const [heroSlides] = useState([
     {
@@ -47,7 +56,7 @@ function App() {
   const [allCards, setAllCards] = useState([
     {
       id: 1,
-      img: "./assets/img/all-1.jpg",
+      img: cardImg1,
       title: "Nike Kyrie Flytrap IV",
       price: "150",
       isLiked: false,
@@ -55,7 +64,7 @@ function App() {
     },
     {
       id: 2,
-      img: "./assets/img/all-2.jpg",
+      img: cardImg2,
       title: "Jordan Air Jordan 11",
       price: "100",
       isLiked: false,
@@ -63,7 +72,7 @@ function App() {
     },
     {
       id: 3,
-      img: "./assets/img/all-3.jpg",
+      img: cardImg3,
       title: "Nike Kyrie 7",
       price: "70",
       isLiked: false,
@@ -71,7 +80,7 @@ function App() {
     },
     {
       id: 4,
-      img: "./assets/img/all-4.jpg",
+      img: cardImg4,
       title: "Nike LeBron XVIII",
       price: "90",
       isLiked: false,
@@ -79,7 +88,7 @@ function App() {
     },
     {
       id: 5,
-      img: "./assets/img/all-5.jpg",
+      img: cardImg5,
       title: "Nike Air Max 270",
       price: "150",
       isLiked: false,
@@ -87,7 +96,7 @@ function App() {
     },
     {
       id: 6,
-      img: "./assets/img/all-6.jpg",
+      img: cardImg6,
       title: "Aka Boku Future Rider",
       price: "150",
       isLiked: false,
@@ -95,7 +104,7 @@ function App() {
     },
     {
       id: 7,
-      img: "./assets/img/all-7.jpg",
+      img: cardImg7,
       title: "Nike Lebron XVIII Low",
       price: "150",
       isLiked: false,
@@ -103,7 +112,7 @@ function App() {
     },
     {
       id: 8,
-      img: "./assets/img/all-8.jpg",
+      img: cardImg8,
       title: "Under Armour Curry 8",
       price: "150",
       isLiked: false,

@@ -1,5 +1,5 @@
 .cards {
-    --card-height: 105px;
+    --card-height:13.5%;
     --elems: 4;
     --gap: 20px;
     height: calc(var(--card-height) * var(--elems) + var(--gap) * (var(--elems) - 1) + 1px);
